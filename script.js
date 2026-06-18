@@ -7,7 +7,7 @@
 
         let soundEnabled = false;
 
-        // 1. Instantly map out the 60 perimeter dash lines
+      
         for (let i = 0; i < 60; i++) {
             const mark = document.createElement("div");
             mark.className = "tick-mark";
@@ -17,7 +17,7 @@
             clockEl.appendChild(mark);
         }
 
-        // 2. Calculate the positions for numbers 1-12
+       
         const clockRadius = 180; 
         const numberOffset = 42; 
 
@@ -35,14 +35,14 @@
             clockEl.appendChild(numEl);
         }
 
-        // 3. Audio Control Button
+        
         soundBtn.addEventListener("click", () => {
             soundEnabled = !soundEnabled;
             soundBtn.textContent = soundEnabled ? "Turn Sound OFF" : "Turn Sound ON";
             soundBtn.style.background = soundEnabled ? "red" : "green";
         });
 
-        // 4. Update hand positions
+       
         function updateClock() {
             const now = new Date();
             const hr = now.getHours();

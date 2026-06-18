@@ -1,0 +1,115 @@
+ body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #222, #000);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        /* Clock Face Frame */
+        .clock {
+            width: 360px;
+            height: 360px;
+            background: white;
+            border: 10px solid #222;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 0 0 6px #666, 0 0 30px rgba(255,255,255,0.25), inset 0 0 18px rgba(0,0,0,0.25);
+        }
+
+        /* Center Pin Dot */
+        .clock::before {
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: black;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+        }
+
+        /* Base rule for all moving hands */
+        .hand {
+            position: absolute;
+            bottom: 50%; 
+            left: 50%;
+            transform-origin: bottom center; 
+            transform: translateX(-50%) rotate(0deg);
+            border-radius: 10px;
+            z-index: 5;
+        }
+
+        /* Reduced the heights here so they don't block the numbers */
+        .hour { width: 6px; height: 18%; background: #444; }
+        .minute { width: 4px; height: 26%; background: #777; }
+        .second { width: 2px; height: 30%; background: red; }
+
+        /* Clock Numbers fixed directly below hour marks */
+        .number {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: black;
+            z-index: 2;
+        }
+
+        /* Outer Dial Tick Lines Container */
+        .tick-mark {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform-origin: bottom center;
+            height: 50%;
+            width: 2px;
+            background: transparent;
+        }
+
+        /* Outer Minute lines */
+        .tick-mark::before {
+            content: "";
+            display: block;
+            width: 2px;
+            height: 8px;
+            background: #555;
+            margin: 0 auto;
+        }
+
+        /* Outer Hour lines */
+        .tick-mark.hour-mark::before {
+            width: 3px;
+            height: 16px;
+            background: #000;
+        }
+
+        /* Control Button */
+        #soundBtn {
+            margin-top: 25px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: green;
+            color: white;
+            transition: 0.3s;
+        }
+
+        #soundBtn:hover {
+            transform: scale(1.05);
+        }
